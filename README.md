@@ -7,3 +7,6 @@ In fulfillment of the requirements for our Software Engineering 1 course
 - local.css imoha na code sa css 
 
 so if mag gama kag design sa button tan awa sa global b4 ka mogamag imoha
+ayaw i change ang index.html na filename plsssss
+
+also publish ni via github pages sooo
