@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Staff List</title>  
+    <link rel="stylesheet" href="Staff.css">
+</head>
+
+
+<body>
+    <nav>
+        <div class="header">
+            <img src="logo.png" class="logo">
+            <span class="site-name">Mylen's Manukan</span>
+            <div class="navbar">
+                <button class="nav-button">Chicken Status</button>
+                <button class="nav-button">Inventory</button>
+                <button class="nav-button">Orders</button>
+                <button class="nav-button">Staff</button>
+                <button class="nav-button">Pens</button>
+            </div>
+        </div>
+      </nav>
+      <div>
+        <div class="staff-container"></div>
+        <div class="controls">
+            <button onclick="openModal()">Add Employee</button>
+        </div>
+    </div>
+
+    <div id="employeeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Employee</h2>
+            <form id="employeeForm" onsubmit="submitEmployee(event)">
+                <label for="employeeName">Name:</label>
+                <input type="text" id="employeeName" required>
+                <label for="employeeJob">Job:</label>
+                <input type="text" id="employeeJob" required>
+                <label for="employeeDescription">Description:</label>
+                <textarea id="employeeDescription" rows="4" required></textarea>
+                <div class="form-buttons">
+                    <button type="submit">Add Employee</button>
+                    <button type="button" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+      <script src="StafList.js"></script>
+</body>
+
+</html>
