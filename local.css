@@ -21,14 +21,13 @@ a {
 }
 
 .cards-wrapper {
-  display: grid;
+  display: flex; 
+  flex-wrap: wrap; 
   justify-content: center;
-  align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4rem;
+  align-items: center; 
+  gap: 2rem; 
   padding: 4rem;
-  margin: 0 auto;
-  width: max-content;
+  min-height: 100vh;
 }
 
 .card {
