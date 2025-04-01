@@ -1,21 +1,17 @@
 function validateLogin() {
-    // Dummy credentials
-    const correctUsername = "admin";
-    const correctPassword = "12345";
+    // Get the input values
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var errorMessage = document.getElementById("error-message");
 
-    // Get user input
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let errorMessage = document.getElementById("error-message");
-
-    // Check credentials
-    if (username === correctUsername && password === correctPassword) {
-        errorMessage.style.display = "none"; // Hide error if login is successful
-        alert("Login successful!");
-        return true;  // Allow form submission
+    // Simple validation (you can replace this with actual authentication logic)
+    if (username === "admin" && password === "password") {
+        // Redirect to main_page.html
+        window.location.href = "main_page.html";
+        return false; // Prevent form submission
     } else {
-        errorMessage.innerText = "Incorrect username or password!";
-        errorMessage.style.display = "block"; // Show error message
+        errorMessage.textContent = "Invalid username or password.";
+        errorMessage.style.display = "block";
         return false; // Prevent form submission
     }
 }
