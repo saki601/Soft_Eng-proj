@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Caveat:wght@400..700&family=Handjet:wght@100;300;400&family=Lato:wght@300&family=Tektur&family=Ubuntu&family=Ubuntu+Mono&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    background-color: #BF3131;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Caveat", cursive;
+    color: white; 
+    text-align: left;  
+    padding-left: 20px;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    margin-right: 10px; 
+}
+
+.site-name {
+    flex-grow: 1; 
+}
+
+.navbar {
+    display: flex;
+    gap: 15px;
+    text-align: right;
+}
+
+.navbar a {
+    color: white;
+    font-family: tahoma, sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+}
+
+.nav-button {
+    padding: 10px 15px;
+    background-color: transparent; 
+    color: inherit; 
+    border: none; 
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+.nav-button:hover {
+    transform: scale(1.02); /* Slightly enlarges the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+    background-color: rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle background color */
+    border-radius: 5px; /* Rounds the corners */
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+    border-radius: 5px;
+}
+
+.staff-container {
+    gap: 20px;
+    padding: 20px;
+}
+
+.staff-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.staff-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details {
+    display: none;
+    margin-top: 10px;
+    color: #555;
+}
+
+.remove-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #BF3131;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: none;
+}
+
+.remove-button:hover {
+    background-color: #a82828;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.form-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-buttons button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+}
+
+.form-buttons button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.form-buttons button[type="button"] {
+    background-color: #BF3131;
+    color: white;
+}
+
+.form-buttons button[type="button"]:hover {
+    background-color: #a82828;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Modal styles end */
+
