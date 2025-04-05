@@ -16,16 +16,29 @@ body {
 
 /* Table styling */
 table {
-  background-color: rgba(255, 255, 255, 0.5); 
-  backdrop-filter: blur(10px);
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto; /* Centers block elements like tables */
+  padding: 3rem 2rem;
+
+  background-color: rgba(172, 168, 168, 0.1);
+  backdrop-filter: blur(15px);
+
+  border: 2px solid rgba(240, 240, 240, 0.2);
   border-radius: 10px;
-  padding: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+
+  position: relative; 
+  transform: none;
+  top: auto;
+  left: auto;
+
+  /* Table-specific styles (ignored if not applied to a table) */
   border-collapse: collapse;
-  width: 100%;             /* Make the table take the full width */
-  table-layout: fixed;     /* Ensures that columns are evenly distributed */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;         /* Centers the table */
+  table-layout: fixed;
 }
+
 
 /* Table header and cells styling */
 th, td {
