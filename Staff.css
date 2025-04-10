@@ -9,6 +9,10 @@ body {
     flex-direction: column;
     text-align: center;
     font-family: Arial, sans-serif;
+    background-image: url('StaffList/43941.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 
 .header {
@@ -71,18 +75,50 @@ body {
     border-radius: 5px;
 }
 
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.page-title {
+    font-size: 50px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.add-employee-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-employee-button:hover {
+    background-color: #0056b3;
+}
+
 .staff-container {
     gap: 20px;
     padding: 20px;
 }
 
 .staff-box {
-    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .staff-box:hover {
@@ -96,20 +132,54 @@ body {
     color: #555;
 }
 
-.remove-button {
-    margin-top: 10px;
+.employee-details {
+    flex: 2;
+    text-align: left;
+    font-size: 16px;
+    color: #555;
+    margin-right: 20px;
+}
+
+.employee-name {
+    flex: 1;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.employee-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.remove-button,
+.update-button {
     padding: 5px 10px;
-    background-color: #BF3131;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    display: none;
+}
+
+.remove-button {
+    background-color: #BF3131;
+    color: white;
 }
 
 .remove-button:hover {
     background-color: #a82828;
+}
+
+.update-button {
+    background-color: #007BFF;
+    color: white;
+}
+
+.update-button:hover {
+    background-color: #0056b3;
 }
 
 /* Modal styles */
