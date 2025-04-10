@@ -3,7 +3,7 @@
 
 <head>
     <title>Staff List</title>  
-    <link rel="stylesheet" href="Staff.css">
+    <link rel="stylesheet" href="staff.css">
 </head>
 
 
@@ -22,10 +22,11 @@
         </div>
       </nav>
       <div>
-        <div class="staff-container"></div>
-        <div class="controls">
-            <button onclick="openModal()">Add Employee</button>
+        <div class="page-header">
+            <h1 class="page-title">Employees</h1>
+            <button class="add-employee-button" onclick="openModal()">Add Employee</button>
         </div>
+        <div class="staff-container"></div>
     </div>
 
     <div id="employeeModal" class="modal">
@@ -35,10 +36,22 @@
             <form id="employeeForm" onsubmit="submitEmployee(event)">
                 <label for="employeeName">Name:</label>
                 <input type="text" id="employeeName" required>
-                <label for="employeeJob">Job:</label>
-                <input type="text" id="employeeJob" required>
-                <label for="employeeDescription">Description:</label>
-                <textarea id="employeeDescription" rows="4" required></textarea>
+
+                <label for="employeePosition">Position:</label>
+                <input type="text" id="employeePosition" required>
+
+                <label for="employeeAddress">Address:</label>
+                <input type="text" id="employeeAddress" required>
+                
+                <label for="employeePhone">Phone No.:</label>
+                <input type="tel" id="employeePhone" required>
+
+                <label for="employeeStartDate">Start Date:</label>
+                <input type="date" id="employeeStartDate" required>
+
+                <label for="employeeSalary">Salary:</label>
+                <input type="number" id="employeeSalary" required>
+
                 <div class="form-buttons">
                     <button type="submit">Add Employee</button>
                     <button type="button" onclick="closeModal()">Cancel</button>
@@ -46,7 +59,7 @@
             </form>
         </div>
     </div>
-      <script src="StafList.js"></script>
+    <script src="StafList.js"></script>
 </body>
 
 </html>
