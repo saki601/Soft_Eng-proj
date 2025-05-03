@@ -1,33 +1,26 @@
 <!DOCTYPE html>
-<html>
 
+<html lang="en">
 <head>
+
+    <meta charset="UTF-8">
     <title>Staff List</title>  
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css_files/Global.css">
     <link rel="stylesheet" href="Staff.css">
+    <link rel="stylesheet" href="css_files/practic.css"> 
+
 </head>
 
 
 <body>
-    <nav>
-        <div class="header">
-            <img src="logo.png" class="logo">
-            <span class="site-name">Mylen's Manukan</span>
-            <div class="navbar">
-                <button class="nav-button">Chicken Status</button>
-                <button class="nav-button">Inventory</button>
-                <button class="nav-button">Orders</button>
-                <button class="nav-button">Staff</button>
-                <button class="nav-button">Pens</button>
-            </div>
-        </div>
-      </nav>
-      <div>
-        <div class="page-header">
-            <h1 class="page-title">Employees</h1>
-            <button class="add-employee-button" onclick="openModal()">Add Employee</button>
-        </div>
-        <div class="staff-container"></div>
+    <div class="page-header">
+        <h1 class="page-title">Employees</h1>
+        <button class="add-employee-button" onclick="openModal()">Add Employee</button>
     </div>
+
+    <div class="staff-container"></div>
 
     <div id="employeeModal" class="modal">
         <div class="modal-content">
