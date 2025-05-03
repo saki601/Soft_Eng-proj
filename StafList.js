@@ -1,97 +1,51 @@
-function toggleDetails(box) {
-    const details = box.querySelector('.details');
-    const removeButton = box.querySelector('.remove-button');
-
-    // Toggle the visibility of the details
-    if (details.style.display === 'block') {
-        details.style.display = 'none';
-        removeButton.style.display = 'none'; // Hide the remove button
-    } else {
-        details.style.display = 'block';
-        removeButton.style.display = 'inline-block'; // Show the remove button
-    }
-}
-
 function openModal() {
-    document.getElementById('employeeModal').style.display = 'flex';
+    document.getElementById("employeeModal").style.display = "flex";
 }
 
 function closeModal() {
-    document.getElementById('employeeModal').style.display = 'none';
-    document.getElementById('employeeForm').reset(); // Clear the form
+    document.getElementById("employeeModal").style.display = "none";
+    document.getElementById("employeeForm").reset();
 }
 
 function submitEmployee(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault();
 
-    const employeeName = document.getElementById('employeeName').value;
-    const employeePosition = document.getElementById('employeePosition').value;
-    const employeeAddress = document.getElementById('employeeAddress').value;
-    const employeePhone = document.getElementById('employeePhone').value;
-    const employeeStartDate = document.getElementById('employeeStartDate').value;
-    const employeeSalary = document.getElementById('employeeSalary').value;
+    const name = document.getElementById("employeeName").value.trim();
+    const position = document.getElementById("employeePosition").value.trim();
+    const address = document.getElementById("employeeAddress").value.trim();
+    const phone = document.getElementById("employeePhone").value.trim();
+    const startDate = document.getElementById("employeeStartDate").value;
+    const salary = document.getElementById("employeeSalary").value;
 
-    const container = document.querySelector('.staff-container');
-    const newBox = document.createElement('div');
-    newBox.className = 'staff-box';
+    const employee = { name, position, address, phone, startDate, salary };
+    addEmployeeAccordion(employee);
+    closeModal();
+}
 
-    newBox.innerHTML = `
-        <div class="employee-name">
-            <h2>${employeeName}</h2>
-        </div>
-        <div class="employee-details">
-            <p><strong>Position:</strong> ${employeePosition}</p>
-            <p><strong>Address:</strong> ${employeeAddress}</p>
-            <p><strong>Phone No.:</strong> ${employeePhone}</p>
-            <p><strong>Start Date:</strong> ${employeeStartDate}</p>
-            <p><strong>Salary:</strong> $${employeeSalary}</p>
-        </div>
-        <div class="employee-actions">
-            <button class="remove-button" onclick="removeSpecificEmployee(event, this)">Remove</button>
-            <button class="update-button" onclick="openUpdateModal(this)">Update</button>
+function addEmployeeAccordion(employee) {
+    const container = document.querySelector(".staff-container");
+
+    const accordionItem = document.createElement("div");
+    accordionItem.className = "accordion-item";
+
+    accordionItem.innerHTML = `
+        <button class="accordion-header">${employee.name}</button>
+        <div class="accordion-body">
+            <p><strong>Position:</strong> ${employee.position}</p>
+            <p><strong>Address:</strong> ${employee.address}</p>
+            <p><strong>Phone:</strong> ${employee.phone}</p>
+            <p><strong>Start Date:</strong> ${employee.startDate}</p>
+            <p><strong>Salary:</strong> $${parseFloat(employee.salary).toLocaleString()}</p>
         </div>
     `;
 
-    container.appendChild(newBox);
-    closeModal(); 
-}
+    container.appendChild(accordionItem);
 
-function openUpdateModal(button) {
-    const box = button.closest('.staff-box');
-    const name = box.querySelector('.employee-name h2').textContent;
-    const position = box.querySelector('.employee-details p:nth-child(1)').textContent.replace('Position: ', '');
-    const address = box.querySelector('.employee-details p:nth-child(2)').textContent.replace('Address: ', '');
-    const phone = box.querySelector('.employee-details p:nth-child(3)').textContent.replace('Phone No.: ', '');
-    const startDate = box.querySelector('.employee-details p:nth-child(4)').textContent.replace('Start Date: ', '');
-    const salary = box.querySelector('.employee-details p:nth-child(5)').textContent.replace('Salary: $', '');
+    // Add toggle behavior
+    const header = accordionItem.querySelector(".accordion-header");
+    const body = accordionItem.querySelector(".accordion-body");
 
-    // Populate the modal with existing details
-    document.getElementById('employeeName').value = name;
-    document.getElementById('employeePosition').value = position;
-    document.getElementById('employeeAddress').value = address;
-    document.getElementById('employeePhone').value = phone;
-    document.getElementById('employeeStartDate').value = startDate;
-    document.getElementById('employeeSalary').value = salary;
-
-    // Update the form submission to modify the existing box
-    const form = document.getElementById('employeeForm');
-    form.onsubmit = function (event) {
-        event.preventDefault();
-        box.querySelector('.employee-name h2').textContent = document.getElementById('employeeName').value;
-        box.querySelector('.employee-details p:nth-child(1)').innerHTML = `<strong>Position:</strong> ${document.getElementById('employeePosition').value}`;
-        box.querySelector('.employee-details p:nth-child(2)').innerHTML = `<strong>Address:</strong> ${document.getElementById('employeeAddress').value}`;
-        box.querySelector('.employee-details p:nth-child(3)').innerHTML = `<strong>Phone No.:</strong> ${document.getElementById('employeePhone').value}`;
-        box.querySelector('.employee-details p:nth-child(4)').innerHTML = `<strong>Start Date:</strong> ${document.getElementById('employeeStartDate').value}`;
-        box.querySelector('.employee-details p:nth-child(5)').innerHTML = `<strong>Salary:</strong> $${document.getElementById('employeeSalary').value}`;
-        closeModal();
-        form.onsubmit = submitEmployee; // Reset the form submission to the default behavior
-    };
-
-    openModal(); // Open the modal for editing
-}
-
-function removeSpecificEmployee(event, button) {
-    event.stopPropagation(); // Prevent triggering the toggleDetails function
-    const box = button.closest('.staff-box'); // Find the parent staff-box
-    box.remove(); // Remove the specific employee box
+    header.addEventListener("click", () => {
+        body.classList.toggle("active");
+    });
 }
