@@ -8,6 +8,13 @@
     padding: 0 20px;
 }
 
+.page-title {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+    
 .add-employee-button {
     display: flex;
     padding: 10px 20px;
