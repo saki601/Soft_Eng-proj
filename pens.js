@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <label for="live-population-${penNumber}">Live Population:</label>
                 <input type="number" id="live-population-${penNumber}" placeholder="Enter live population" value="${data.livePopulation || ''}">
 
+                <label for="description-${penNumber}">Description:</label>
+                <input type="text" id="description-${penNumber}" placeholder="Enter context" value="${data.penDescription || ''}">
+
                 <label for="harvest-date-${penNumber}">Harvest Date:</label>
                 <input type="date" id="harvest-date-${penNumber}" value="${data.harvestDate || ''}">
             </div>
@@ -61,12 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.savePenData = (penNumber, type) => {
         const startingPopulation = document.getElementById(`starting-population-${penNumber}`).value;
         const livePopulation = document.getElementById(`live-population-${penNumber}`).value;
+        const description = document.getElementById(`description-${penNumber}`).value; // Get the description input
         const harvestDate = document.getElementById(`harvest-date-${penNumber}`).value;
 
         // Save data to the penData object
         penData[type][penNumber - 1] = {
             startingPopulation,
             livePopulation,
+            description,            
             harvestDate,
         };
 
@@ -137,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <th>Pen</th>
                     <th>Starting Population</th>
                     <th>Live Population</th>
+                    <th>Description</th>                    
                     <th>Harvest Date</th>
                 </tr>
             </thead>
@@ -151,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td>Pen ${index + 1}</td>
                 <td>${pen.startingPopulation || "N/A"}</td>
                 <td>${pen.livePopulation || "N/A"}</td>
+                <td>${pen.description || "N/A"}</td>
                 <td>${pen.harvestDate || "N/A"}</td>
             `;
             tbody.appendChild(row);
