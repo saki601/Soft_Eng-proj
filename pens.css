@@ -75,6 +75,7 @@
     padding: 20px;
     gap: 10px; /* Space between elements */
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .green-box {
@@ -158,4 +159,96 @@
 
 .update-harvest-button:hover {
     background-color: #138496; /* Darker teal on hover */
+}
+
+
+/* Details table */
+.details-table-container {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.details-table th,
+.details-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.details-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.details-table td {
+    background-color: #fff;
+}
+
+/* General Harvest Buttons */
+
+.general-harvest-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.apply-general-harvest-button {
+    padding: 10px 20px;
+    background-color: #ffc107; /* Yellow color */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.apply-general-harvest-button:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.general-harvest-box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.general-harvest-box .pen-title {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.general-harvest-box .pen-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.general-harvest-box .apply-general-harvest-button {
+    padding: 10px 20px;
+    background-color: #ffc107;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.general-harvest-box .apply-general-harvest-button:hover {
+    background-color: #e0a800;
 }
