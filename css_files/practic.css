@@ -11,6 +11,8 @@
   }
   
   .div4 {
-
+    justify-content: flex-start; /* align left */
+    align-items: flex-start;     /* align top */
+    padding: 20px;
   }
   
