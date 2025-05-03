@@ -1,13 +1,12 @@
 /* General body styling */
 body {
-  font-family: Arial, sans-serif; /* Apply a global font */
   margin: 0;
   padding: 0;
-  background-color: hsl(0, 0%, 96%); /* Set a background color */
+ /* background-color: hsl(0, 0%, 96%); /* Set a background color */
 }
 
 .table-wrapper {
-  width: 90%;              /* Set the width of the table wrapper */
+  width: 100%;              /* Set the width of the table wrapper */
   overflow-x: hidden;        /* Use auto to allow horizontal scrolling if needed */
   margin-top: 20px;        /* Add top margin */
   margin-left: auto;       /* Center horizontally by setting left margin to auto */
@@ -16,7 +15,7 @@ body {
 
 /* Table styling */
 table {
-  width: 90%;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto; /* Centers block elements like tables */
   padding: 3rem 2rem;
@@ -73,7 +72,7 @@ tr:nth-child(even) {
 
 /* Input and select elements inside the table */
 input, select {
-  font-size: 14px; /* Match table font size */
+  font-size: 8px; /* Match table font size */
   padding: 6px; /* Consistent padding */
   border: 1px solid #ccc; /* Border for inputs */
   border-radius: 4px; /* Rounded corners for inputs */
