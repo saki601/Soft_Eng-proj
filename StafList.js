@@ -31,11 +31,13 @@ function addEmployeeAccordion(employee) {
     accordionItem.innerHTML = `
         <button class="accordion-header">${employee.name}</button>
         <div class="accordion-body">
-            <p><strong>Position:</strong> ${employee.position}</p>
-            <p><strong>Address:</strong> ${employee.address}</p>
-            <p><strong>Phone:</strong> ${employee.phone}</p>
-            <p><strong>Start Date:</strong> ${employee.startDate}</p>
-            <p><strong>Salary:</strong> $${parseFloat(employee.salary).toLocaleString()}</p>
+            <div class="accordion-body-content">        
+                <p><strong>Position:</strong> ${employee.position}</p>
+                <p><strong>Address:</strong> ${employee.address}</p>
+                <p><strong>Phone:</strong> ${employee.phone}</p>
+                <p><strong>Start Date:</strong> ${employee.startDate}</p>
+                <p><strong>Salary:</strong> $${parseFloat(employee.salary).toLocaleString()}</p>
+            </div>
             <button class="update-button" onclick="openUpdateModal(this)">Update</button>
         </div>
     `;
@@ -49,6 +51,7 @@ function addEmployeeAccordion(employee) {
     header.addEventListener("click", () => {
         body.classList.toggle("active");
     });
+}
 
 // Function to open the update modal
 function openUpdateModal(button) {
@@ -97,5 +100,90 @@ function saveUpdatedDetails(accordionBody) {
     // Close the modal
     closeModal();
 }    
+
+function transformRemoveButton() {
+    const removeButtonContainer = document.querySelector(".page-header-buttons");
+
+    // Replace the Remove Employee button with Confirm and Cancel buttons
+    removeButtonContainer.innerHTML = `
+        <button class="confirm-remove-button" onclick="confirmRemove()">Confirm Remove</button>
+        <button class="cancel-remove-button" onclick="cancelRemove()">Cancel</button>
+    `;
 }
 
+function confirmRemove() {
+    alert("Employee removal confirmed.");
+    resetRemoveButton(); // Reset the buttons back to the original state
+}
+
+function cancelRemove() {
+    resetRemoveButton(); // Reset the buttons back to the original state
+}
+
+function resetRemoveButton() {
+    const removeButtonContainer = document.querySelector(".page-header-buttons");
+
+    // Restore the original Add and Remove Employee buttons
+    removeButtonContainer.innerHTML = `
+        <button class="add-employee-button" onclick="openModal()">Add Employee</button>
+        <button class="remove-employee-button" onclick="transformRemoveButton()">Remove Employee</button>
+    `;
+}
+
+let isRemoveMode = false; // Track whether the remove mode is active
+
+function transformRemoveButton() {
+    const removeButtonContainer = document.querySelector(".page-header-buttons");
+    const staffContainer = document.querySelector(".staff-container");
+
+    if (!isRemoveMode) {
+        // Enter remove mode
+        isRemoveMode = true;
+
+        // Add checkboxes to all accordion headers
+        const employees = staffContainer.querySelectorAll(".accordion-header");
+        employees.forEach((header) => {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "remove-checkbox";
+            header.prepend(checkbox); // Add the checkbox at the beginning of the header
+        });
+
+        // Replace the Remove Employee button with Confirm and Cancel buttons
+        removeButtonContainer.innerHTML = `
+            <button class="confirm-remove-button" onclick="confirmRemove()">Confirm Remove</button>
+            <button class="cancel-remove-button" onclick="cancelRemove()">Cancel</button>
+        `;
+    }
+}
+
+function confirmRemove() {
+    const staffContainer = document.querySelector(".staff-container");
+
+    // Find all checked checkboxes and remove their corresponding employees
+    const checkboxes = staffContainer.querySelectorAll(".remove-checkbox:checked");
+    checkboxes.forEach((checkbox) => {
+        const accordionItem = checkbox.closest(".accordion-item"); // Find the parent accordion item
+        accordionItem.remove(); // Remove the accordion item from the DOM
+    });
+
+    // Exit remove mode
+    cancelRemove();
+}
+
+function cancelRemove() {
+    const removeButtonContainer = document.querySelector(".page-header-buttons");
+    const staffContainer = document.querySelector(".staff-container");
+
+    // Remove all checkboxes
+    const checkboxes = staffContainer.querySelectorAll(".remove-checkbox");
+    checkboxes.forEach((checkbox) => checkbox.remove());
+
+    // Restore the original Add and Remove Employee buttons
+    removeButtonContainer.innerHTML = `
+        <button class="add-employee-button" onclick="openModal()">Add Employee</button>
+        <button class="remove-employee-button" onclick="transformRemoveButton()">Remove Employee</button>
+    `;
+
+    isRemoveMode = false; // Exit remove mode
+}
