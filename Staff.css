@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Caveat:wght@400..700&family=Handjet:wght@100;300;400&family=Lato:wght@300&family=Tektur&family=Ubuntu&family=Ubuntu+Mono&display=swap');
 
+.content {
+    width: 100%;
+}
+
+.main-content {
+    grid-column: span 4 / span 4;
+    grid-row: span 5 / span 5;
+    display: flex;
+    justify-content: flex-start; /* align left */
+    align-items: flex-start;     /* align top */
+    padding: 20px;
+    width: 100%; 
+    flex-direction: column;
+  }
+
 .page-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0;
-    padding: 0 20px;
+    width: 100%;
 }
 
 .page-title {
@@ -13,6 +27,13 @@
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ffffff;
+    margin: 0;
+}
+
+.page-header-buttons {
+    display: flex;
+    align-items: flex-end; 
+    gap: 10px;
 }
 
 .add-employee-button {
@@ -30,7 +51,23 @@
     background-color: #0056b3;
 }
 
+.remove-employee-button {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.remove-employee-button:hover {
+    background-color: #B30000;
+}
+
 .staff-container {
+    width: 100%;
     gap: 20px;
     padding: 20px;
 }
@@ -258,6 +295,35 @@
 }
 
 .update-button:hover {
+    background-color: #0056b3;
+}
+
+.confirm-remove-button {
+    background-color: #FF0000; /* Red for confirmation */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.confirm-remove-button:hover {
+    background-color: #B30000;
+}
+
+.cancel-remove-button {
+    background-color: #007BFF; /* Blue for cancel */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.cancel-remove-button:hover {
     background-color: #0056b3;
 }
 
