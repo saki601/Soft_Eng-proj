@@ -77,6 +77,7 @@
     padding: 20px;
     gap: 10px; /* Space between elements */
     text-align: center;
+
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -253,4 +254,51 @@
 
 .general-harvest-box .apply-general-harvest-button:hover {
     background-color: #e0a800;
+}
+
+/* Wrapper for General Harvest Date and Manage Pens Box */
+.harvest-and-actions-container {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically */
+    gap: 20px; /* Space between the boxes */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+/* Buttons inside the Actions Box */
+.pen-actions button {
+    display: block;
+    width: 100%; /* Full width buttons */
+    margin: 10px 0; /* Space between buttons */
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-custom-pen-button {
+    background-color: #28a745; /* Green for Add Custom Pen */
+    color: white;
+}
+
+.add-custom-pen-button:hover {
+    background-color: #218838;
+}
+
+.update-specific-pen-button {
+    background-color: #007bff; /* Blue for Update Specific Pen */
+    color: white;
+}
+
+.update-specific-pen-button:hover {
+    background-color: #0056b3;
+}
+
+.remove-specific-pen-button {
+    background-color: #dc3545; /* Red for Remove Specific Pen */
+    color: white;
+}
+
+.remove-specific-pen-button:hover {
+    background-color: #c82333;
 }
