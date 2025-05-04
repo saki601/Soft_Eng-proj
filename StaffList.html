@@ -1,58 +1,95 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
 
+<head>
     <meta charset="UTF-8">
-    <title>Staff List</title>  
+    <title>Staff List</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="css_files/Global.css">
     <link rel="stylesheet" href="Staff.css">
-    <link rel="stylesheet" href="css_files/practic.css"> 
-
+    <link rel="stylesheet" href="css_files/practic.css">
+    <link rel="stylesheet" href="css_files/s.css">
 </head>
 
-
 <body>
-    <div class="page-header">
-        <h1 class="page-title">Staff</h1>
-        <button class="add-employee-button" onclick="openModal()">Add Employee</button>
-    </div>
+    <div class="parent">
+            <!-- Sidebar -->
+            <div class="div2">
+                <div class="wrapper">
+                    <div class="sidebar">
+                        <div class="profile">
+                            <img src="css_files/images/Logo.svg" alt="Logo" />
+                            <h3>Mylen's Manukan</h3>
+                            <p>Shop</p>
+                        </div>
 
-    <div class="staff-container"></div>
+                        <ul>
+                            <li><a href="https://saki601.github.io/Soft_Eng-proj/main_page.html"><i class="fas fa-home icon"></i><span class="item">Home</span></a></li>
+                            <li><a href="https://saki601.github.io/lastone/alternative.html"><i class="fas fa-desktop icon"></i><span class="item">Orders</span></a></li>
+                            <li><a href="https://saki601.github.io/Soft_Eng-proj/StaffList.html"><i class="fas fa-user-friends icon"></i><span class="item">Staff</span></a></li>
+                            <li><a href="https://saki601.github.io/Soft_Eng-proj/Inventory.html" class="active"><i class="fas fa-database icon"></i><span class="item">Inventory</span></a></li>
+                            <li><a href="https://saki601.github.io/Soft_Eng-proj/chicken-pens.html"><i class="fas fa-database icon"></i><span class="item">Pens</span></a></li>
+                            <li><a href="https://saki601.github.io/lastone/alternative_order%20receive.html"><i class="fas fa-chart-line icon"></i><span class="item">Receive Delivery</span></a></li>
+                            <li><a href="https://saki601.github.io/lastone/alternativedash.html"><i class="fas fa-user-shield icon"></i><span class="item">Chicken status</span></a></li>
+                        </ul>
 
-    <div id="employeeModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Add Employee</h2>
-            <form id="employeeForm" onsubmit="submitEmployee(event)">
-                <label for="employeeName">Name:</label>
-                <input type="text" id="employeeName" required>
-
-                <label for="employeePosition">Position:</label>
-                <input type="text" id="employeePosition" required>
-
-                <label for="employeeAddress">Address:</label>
-                <input type="text" id="employeeAddress" required>
-                
-                <label for="employeePhone">Phone No.:</label>
-                <input type="tel" id="employeePhone" required>
-
-                <label for="employeeStartDate">Start Date:</label>
-                <input type="date" id="employeeStartDate" required>
-
-                <label for="employeeSalary">Salary:</label>
-                <input type="number" id="employeeSalary" required>
-
-                <div class="form-buttons">
-                    <button type="submit">Add Employee</button>
-                    <button type="button" onclick="closeModal()">Cancel</button>
+                        <div class="logout-container">
+                            <button class="logout-btn"><span>Log Out</span></button>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content"> 
+                <div class="content">
+                    <div class="page-header">
+                        <h1 class="page-title">Staff</h1>
+                        <div class="page-header-buttons">
+                            <button class="add-employee-button" onclick="openModal()">Add Employee</button>
+                            <button class="remove-employee-button" onclick="transformRemoveButton()">Remove Employee</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="staff-container"></div>
+    
+                <!-- Employee Modal -->
+                <div id="employeeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <h2>Add Employee</h2>
+                        <form id="employeeForm" onsubmit="submitEmployee(event)">
+                            <label for="employeeName">Name:</label>
+                            <input type="text" id="employeeName" required>
+        
+                            <label for="employeePosition">Position:</label>
+                            <input type="text" id="employeePosition" required>
+        
+                            <label for="employeeAddress">Address:</label>
+                            <input type="text" id="employeeAddress" required>
+        
+                            <label for="employeePhone">Phone No.:</label>
+                            <input type="tel" id="employeePhone" required>
+        
+                            <label for="employeeStartDate">Start Date:</label>
+                            <input type="date" id="employeeStartDate" required>
+        
+                            <label for="employeeSalary">Salary:</label>
+                            <input type="number" id="employeeSalary" required>
+        
+                            <div class="form-buttons">
+                                <button type="submit">Add Employee</button>
+                                <button type="button" onclick="closeModal()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
     </div>
+    <!-- JavaScript -->
     <script src="StafList.js"></script>
 </body>
-
 </html>
