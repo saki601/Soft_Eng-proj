@@ -7,15 +7,46 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css_files/Global.css">
-    <link rel="stylesheet" href="pens.css">
+    <link rel="stylesheet" href="css_files/s.css">
+    <link rel="stylesheet" href="css_files/pens.css">
     <link rel="stylesheet" href="css_files/practic.css">
     
     
 </head>
 
+
 <body>
+    <div class="parent">
+        <!-- Sidebar Section -->
+        <div class="div1">
+            <div class="wrapper">
+                <div class="sidebar">
+                    <div class="profile">
+                        <img src="css_files/images/Logo.svg" alt="Logo" />
+                        <h3>Mylen's Manukan</h3>
+                        <p>Shop</p>
+                    </div>
+            
+                        <ul>
+                            <li><a href="main_page.html"><i class="fas fa-home icon"></i><span class="item">Home</span></a></li>
+                            <li><a href="alternative.html" class="active"><i class="fas fa-desktop icon"></i><span class="item">Orders</span></a></li>
+                            <li><a href="#"><i class="fas fa-user-friends icon"></i><span class="item">Staff</span></a></li>
+                            <li><a href="#"><i class="fas fa-tachometer-alt icon"></i><span class="item">Order</span></a></li>
+                            <li><a href="#"><i class="fas fa-database icon"></i><span class="item">Inventory</span></a></li>
+                            <li><a href="#"><i class="fas fa-chart-line icon"></i><span class="item">Analytics</span></a></li>
+                            <li><a href="#"><i class="fas fa-user-shield icon"></i><span class="item">Admin</span></a></li>
+                            <li><a href="#"><i class="fas fa-cog icon"></i><span class="item">Settings</span></a></li>
+                        </ul>
+            
+                    <div class="logout-container">
+                        <button class="logout-btn"><span>Log Out</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Main Content Section -->
-        <div class="pens-wrapper">
+        <div class="div4">
             <!-- Native Selector -->
             <div class="pens-selector">
                 <button class="native-button">Native</button>
@@ -27,7 +58,7 @@
             </div>
         </div>
     </div>
-    <script src="pens.js"></script>
+    <script src="scripts/pens.js"></script>
 </body>
 
 </html>
