@@ -1,5 +1,16 @@
 /* Styles for the pens selector buttons */
 
+.main-content {
+    grid-column: span 4 / span 4;
+    grid-row: span 5 / span 5;
+    display: flex;
+    justify-content: flex-start; /* align left */
+    align-items: flex-start;     /* align top */
+    padding: 20px;
+    width: 100%; 
+    flex-direction: column;
+}
+
 .pens-selector {
     display: flex;
     justify-content: center;
