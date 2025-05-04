@@ -36,6 +36,7 @@ function addEmployeeAccordion(employee) {
             <p><strong>Phone:</strong> ${employee.phone}</p>
             <p><strong>Start Date:</strong> ${employee.startDate}</p>
             <p><strong>Salary:</strong> $${parseFloat(employee.salary).toLocaleString()}</p>
+            <button class="update-button" onclick="openUpdateModal(this)">Update</button>
         </div>
     `;
 
@@ -48,4 +49,53 @@ function addEmployeeAccordion(employee) {
     header.addEventListener("click", () => {
         body.classList.toggle("active");
     });
+
+// Function to open the update modal
+function openUpdateModal(button) {
+    const accordionBody = button.parentElement;
+    const employeeDetails = accordionBody.querySelector(".accordion-body-content");
+
+    // Extract current details
+    const name = accordionBody.previousElementSibling.textContent.trim();
+    const position = employeeDetails.querySelector("p:nth-child(1)").textContent.split(": ")[1];
+    const address = employeeDetails.querySelector("p:nth-child(2)").textContent.split(": ")[1];
+    const phone = employeeDetails.querySelector("p:nth-child(3)").textContent.split(": ")[1];
+    const startDate = employeeDetails.querySelector("p:nth-child(4)").textContent.split(": ")[1];
+    const salary = employeeDetails.querySelector("p:nth-child(5)").textContent.split(": ")[1].replace("$", "").replace(",", "");
+
+    // Pre-fill the modal with the current details
+    document.getElementById("employeeName").value = name;
+    document.getElementById("employeePosition").value = position;
+    document.getElementById("employeeAddress").value = address;
+    document.getElementById("employeePhone").value = phone;
+    document.getElementById("employeeStartDate").value = startDate;
+    document.getElementById("employeeSalary").value = salary;
+
+    // Show the modal
+    openModal();
+
+    // Update the form submission to save changes
+    const form = document.getElementById("employeeForm");
+    form.onsubmit = (event) => {
+        event.preventDefault();
+        saveUpdatedDetails(accordionBody);
+    };
 }
+
+// Function to save the updated details
+function saveUpdatedDetails(accordionBody) {
+    const employeeDetails = accordionBody.querySelector(".accordion-body-content");
+
+    // Update the details in the accordion
+    accordionBody.previousElementSibling.textContent = document.getElementById("employeeName").value;
+    employeeDetails.querySelector("p:nth-child(1)").innerHTML = `<strong>Position:</strong> ${document.getElementById("employeePosition").value}`;
+    employeeDetails.querySelector("p:nth-child(2)").innerHTML = `<strong>Address:</strong> ${document.getElementById("employeeAddress").value}`;
+    employeeDetails.querySelector("p:nth-child(3)").innerHTML = `<strong>Phone:</strong> ${document.getElementById("employeePhone").value}`;
+    employeeDetails.querySelector("p:nth-child(4)").innerHTML = `<strong>Start Date:</strong> ${document.getElementById("employeeStartDate").value}`;
+    employeeDetails.querySelector("p:nth-child(5)").innerHTML = `<strong>Salary:</strong> $${parseFloat(document.getElementById("employeeSalary").value).toLocaleString()}`;
+
+    // Close the modal
+    closeModal();
+}    
+}
+
