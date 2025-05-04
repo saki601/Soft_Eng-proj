@@ -47,13 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
         pensContainer.innerHTML = ""; // Clear previous pens
         const colorClass = type === "native" ? "green-box" : "blue-box";
 
-        // Generate 4 pen boxes
+        // Generate 3 pen boxes first (Pen 1 to Pen 3)
         for (let i = 1; i <= 4; i++) {
             const pen = createPenBox(i, colorClass, type);
             pensContainer.appendChild(pen);
         }
 
-        // Add general harvest date input and button
+        // Add the General Harvest Date box after Pen 3
         addGeneralHarvestDate(type);
 
         // Update the table with the current type's data
@@ -97,6 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to add a general harvest date input and button inside a styled box
     const addGeneralHarvestDate = (type) => {
+        const container = document.createElement("div");
+        container.classList.add("harvest-and-actions-container"); // Wrapper for both boxes
+        pensContainer.appendChild(container);
+
+        // General Harvest Date Box
         const generalHarvestBox = document.createElement("div");
         const colorClass = type === "native" ? "green-box" : "blue-box"; // Match the color of the pen boxes
         generalHarvestBox.classList.add("pen-box", colorClass, "general-harvest-box");
@@ -110,8 +115,36 @@ document.addEventListener("DOMContentLoaded", () => {
             <button class="apply-general-harvest-button" onclick="applyGeneralHarvestDate('${type}')">Apply to All Pens</button>
         `;
 
-    pensContainer.appendChild(generalHarvestBox);
-};
+        container.appendChild(generalHarvestBox);
+
+        // Actions Box
+        const actionsBox = document.createElement("div");
+        actionsBox.classList.add("pen-box", colorClass, "actions-box");
+
+        actionsBox.innerHTML = `
+            <h3 class="pen-title">Manage Pens</h3>
+            <div class="pen-actions">
+                <button class="add-custom-pen-button" onclick="openAddCustomPenModal()">Add Custom Pen</button>
+                <button class="update-specific-pen-button" onclick="openUpdateSpecificPenModal()">Update Specific Pen</button>
+                <button class="remove-specific-pen-button" onclick="openRemoveSpecificPenModal()">Remove Specific Pen</button>
+            </div>
+        `;
+
+        container.appendChild(actionsBox);
+    };
+
+    // Placeholder functions for the buttons
+    function openAddCustomPenModal() {
+        alert("Add Custom Pen functionality will be implemented here.");
+    }
+
+    function openUpdateSpecificPenModal() {
+        alert("Update Specific Pen functionality will be implemented here.");
+    }
+
+    function openRemoveSpecificPenModal() {
+        alert("Remove Specific Pen functionality will be implemented here.");
+    }
 
     // Function to apply the general harvest date to all pens
     window.applyGeneralHarvestDate = (type) => {
