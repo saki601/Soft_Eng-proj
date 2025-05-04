@@ -37,15 +37,6 @@
 }
 
 
-/* Styles for the pen boxes */
-
-.pens-wrapper {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Button Container */
 .pens-selector {
     margin-bottom: 20px;
