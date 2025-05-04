@@ -45,10 +45,12 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: transform 0.2s ease;
 }
 
 .add-employee-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05); 
 }
 
 .remove-employee-button {
@@ -60,10 +62,12 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: transform 0.2s ease;
 }
 
 .remove-employee-button:hover {
     background-color: #B30000;
+    transform: scale(1.05); 
 }
 
 .staff-container {
@@ -250,6 +254,12 @@
     margin: 10px 0;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.accordion-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional for a subtle lift effect */
 }
 
 .accordion-header {
@@ -292,10 +302,12 @@
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 .update-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 .confirm-remove-button {
